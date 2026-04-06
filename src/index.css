@@ -53,7 +53,8 @@ header {
 
 .note-item-bottom {
   opacity: 0;
-  height: 20px;
+  margin-top: 10px;
+  height: 30px;
   transition: opacity 0.2s ease;
 }
 
@@ -112,17 +113,33 @@ input:focus, textarea:focus {
 
 .save-button {
   margin-top: 12px;
-  padding: 8px 16px;
-  background-color: #4caf50;
+  padding: 8px 30px;
+  background: transparent;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .save-button:hover {
-  background-color: #45a049;
+  background-color: rgb(32,33,36);
 }
+
+.icon-button {
+  padding: 8px 8px;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.icon-button:hover {
+  background-color: rgb(32,33,36);
+}
+
 
 .note-item {
   width: 250px;
