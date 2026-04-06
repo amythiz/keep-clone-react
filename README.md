@@ -1,6 +1,6 @@
 # Simple note taking web app inspired by Google Keep written in React
 
-It supports displaying, editing and deleting notes. Masonry layout is made with [react-layout-masonry](https://github.com/sibiraj-s/react-layout-masonry)
+It supports displaying, editing and deleting notes (saving is currently unsupported, updating the page restores every change). Masonry layout is made with [react-layout-masonry](https://github.com/sibiraj-s/react-layout-masonry)
 
 ___
 Components:
