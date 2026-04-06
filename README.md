@@ -1,16 +1,10 @@
-# React + Vite
+# Simple note taking web app inspired by Google Keep written in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It supports displaying, editing and deleting notes (saving is currently unsupported, updating the page resets every change). Masonry layout is done with [react-layout-masonry](https://github.com/sibiraj-s/react-layout-masonry)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+___
+Components:
+- NewNote.jsx - As the name suggests it is used to create new notes. Despite the name (this needs refactoring) it is also used for editing notes
+- NewNoteTrigger.jsx - "take a note..." input, gets replaced with the NewNote on focus
+- Note.jsx - note card
+- App.jsx - main app component. Includes simple header, NewNoteTrigger/NewNote and the note list
