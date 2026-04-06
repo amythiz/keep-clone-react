@@ -1,9 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 function NewNote({ onSave, note}) {
   const [title, setTitle] = useState(note?.title ?? '');
   const [content, setContent] = useState(note?.content ?? '');
-  const textareaRef = useRef(null);
 
 
   const handleSave = () => {
@@ -28,7 +27,6 @@ function NewNote({ onSave, note}) {
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        ref={textareaRef}
         className="note-content"
         placeholder="Take a note..."
         value={content}
