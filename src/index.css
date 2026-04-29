@@ -1,9 +1,37 @@
+:root {
+  --bg-color: #f5f7fb;
+  --surface-color: #ffffff;
+  --surface-muted: #f3f4f6;
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --border-color: #d1d5db;
+  --header-bg: #ffffff;
+  --header-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.08);
+  --overlay-color: rgba(0, 0, 0, 0.35);
+  --button-hover: #e5e7eb;
+  --theme-toggle-hover: #e5e7eb;
+}
+
+body[data-theme="dark"] {
+  --bg-color: #1a1c1d;
+  --surface-color: #202124;
+  --surface-muted: #2a2c2f;
+  --text-color: #ffffff;
+  --muted-text: rgb(232, 234, 237);
+  --border-color: rgb(95, 99, 104);
+  --header-bg: rgb(32, 33, 36);
+  --header-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --button-hover: rgb(32, 33, 36);
+  --theme-toggle-hover: rgb(58, 61, 66);
+}
+
 body {
   font-family: "Roboto", arial, sans-serif;
   font-size: 15px;
   margin: 0;
-  background-color: #1a1c1d;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin-top: 94px;
   margin-bottom: 30px;
 }
@@ -20,7 +48,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,19 +64,103 @@ body {
 
 header {
     width: 100%;
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     height: 64px;
-    padding-left: 30px;
-    border-bottom: 1px solid rgb(95,99,104);
-    background-color: rgb(32,33,36);
+    padding: 0 30px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--header-bg);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-	box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+    justify-content: space-between;
+	box-shadow: var(--header-shadow);
     font-size: 22px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-home-link,
+.header-weather-link {
+  text-decoration: none;
+}
+
+.header-home-link:hover,
+.header-weather-link:hover {
+  opacity: 0.9;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.weather-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: var(--muted-text);
+  white-space: nowrap;
+}
+
+.theme-toggle {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: var(--theme-toggle-hover);
+}
+
+.weather-full-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.weather-current {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  background-color: var(--bg-color);
+}
+
+.weather-current-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.weather-forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.weather-day-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  background-color: var(--bg-color);
+}
+
+.weather-day-emoji {
+  font-size: 24px;
+  margin: 6px 0;
 }
 
 .note-item-bottom {
@@ -64,7 +176,7 @@ header {
 
 .NewNoteTrigger {
     font-size: inherit;
-    border: 1px solid rgb(95,99,104);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     width: 560px;
     height: 24px;
@@ -72,16 +184,17 @@ header {
     padding: 12px 16px 12px 16px;
     margin-bottom: 60px;
     display: block;
+    background-color: var(--bg-color);
 }
 
 .note {
   width: 600px;
   margin: 20px auto;
-  border: 1px solid rgb(95,99,104);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: #1a1c1d;
+  background-color: var(--bg-color);
 }
 
 input:focus, textarea:focus {
@@ -97,6 +210,7 @@ input:focus, textarea:focus {
   border: 0;
   border-radius: 8px;
   box-sizing: border-box;
+  background-color: var(--bg-color);
 }
 
 .note-content {
@@ -109,13 +223,14 @@ input:focus, textarea:focus {
   overflow: auto;
   box-sizing: border-box;
   font-family: inherit;
+  background-color: var(--bg-color);
 }
 
 .save-button {
   margin-top: 12px;
   padding: 8px 30px;
   background: transparent;
-  color: white;
+  color: var(--text-color);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -123,7 +238,7 @@ input:focus, textarea:focus {
 }
 
 .save-button:hover {
-  background-color: rgb(32,33,36);
+  background-color: var(--button-hover);
 }
 
 .icon-button {
@@ -137,16 +252,17 @@ input:focus, textarea:focus {
 }
 
 .icon-button:hover {
-  background-color: rgb(32,33,36);
+  background-color: var(--button-hover);
 }
 
 
 .note-item {
   width: 250px;
-  border: 1px solid rgb(95,99,104);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 12px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  background-color: var(--bg-color);
 }
 

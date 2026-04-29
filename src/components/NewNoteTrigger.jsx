@@ -5,7 +5,7 @@ function NewNoteTrigger({ onFocus }) {
     <input
           type="text"
           className="NewNoteTrigger"
-          placeholder="Take a note..."
+          placeholder="Создать заметку..."
           onFocus={onFocus}
     />
 );

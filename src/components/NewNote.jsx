@@ -12,7 +12,7 @@ function NewNote({ onSave, note}) {
       setContent('');
     } else {
       onSave(null);
-      alert('Empty note was deleted!');
+      alert('Пустая заметка была удалена!');
 
     }
   };
@@ -22,19 +22,19 @@ function NewNote({ onSave, note}) {
       <input
         type="text"
         className="note-title"
-        placeholder="Title"
+        placeholder="Заголовок"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
         className="note-content"
-        placeholder="Take a note..."
+        placeholder="Создать заметку..."
         value={content}
         onChange={(e) => setContent(e.target.value)}
         rows={1}
       />
       <button className="save-button" onClick={handleSave}>
-        Save
+        Сохранить
       </button>
     </div>
   );
